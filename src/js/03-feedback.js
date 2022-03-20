@@ -22,11 +22,10 @@ function onFeedbackFormSubmit(event) {
 
 function populateData() {
     const savedData = JSON.parse(localStorage.getItem(FORM_INFO));
+    console.log(savedData);
 
-    if (savedData.email) {
-        feedbackForm.email.value = savedData.email;
-    }
-    if (savedData.message){
+    if (savedData) {
+        feedbackForm.email.value = savedData?.email;
         feedbackForm.message.value = savedData.message;
     }
 }
