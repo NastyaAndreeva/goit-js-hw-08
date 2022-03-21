@@ -16,13 +16,12 @@ function onFeedbackFormSubmit(event) {
     event.preventDefault();
     event.currentTarget.reset();
     console.log(JSON.parse(localStorage.getItem(FORM_INFO)));
-    localStorage.clear();
+    localStorage.removeItem(FORM_INFO);
     formData = {};
 }
 
 function populateData() {
     const savedData = JSON.parse(localStorage.getItem(FORM_INFO));
-    console.log('savedData ', savedData);
 
     if (savedData?.email) {
         feedbackForm.email.value = savedData.email;
