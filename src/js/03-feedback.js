@@ -2,7 +2,7 @@ import throttle from 'lodash.throttle';
 
 const feedbackForm = document.querySelector('.feedback-form');
 const FORM_INFO = "feedback-form-state";
-const formData = {};
+let formData = {};
 
 feedbackForm.addEventListener('input', throttle(onFeedbackFormInput, 500));
 feedbackForm.addEventListener('submit', onFeedbackFormSubmit);
@@ -17,13 +17,17 @@ function onFeedbackFormSubmit(event) {
     event.currentTarget.reset();
     console.log(JSON.parse(localStorage.getItem(FORM_INFO)));
     localStorage.clear();
+    formData = {};
 }
 
 function populateData() {
     const savedData = JSON.parse(localStorage.getItem(FORM_INFO));
+    console.log('savedData ', savedData);
 
-    if (savedData) {
-        feedbackForm.email.value = savedData?.email;
+    if (savedData?.email) {
+        feedbackForm.email.value = savedData.email;
+    }
+    if (savedData?.message) {
         feedbackForm.message.value = savedData.message;
     }
 }
