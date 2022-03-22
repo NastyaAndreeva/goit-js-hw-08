@@ -9,7 +9,8 @@ feedbackForm.addEventListener('submit', onFeedbackFormSubmit);
 
 function onFeedbackFormInput(event) {
     formData[event.target.name] = event.target.value;
-    localStorage.setItem(FORM_INFO, JSON.stringify(formData))
+    const currentData = JSON.parse(localStorage.getItem(FORM_INFO));
+    localStorage.setItem(FORM_INFO, JSON.stringify({...currentData, ...formData}))
 }
 
 function onFeedbackFormSubmit(event) {
