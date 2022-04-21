@@ -1,6 +1,7 @@
 const iframe = document.querySelector('iframe');
 import throttle from 'lodash.throttle';
     const player = new Vimeo.Player(iframe);
+    console.log('The best HW8');
 
     player.on('play', function() {
         console.log('played the video!');
@@ -25,3 +26,15 @@ import throttle from 'lodash.throttle';
                 break;
         }
     });
+
+    const objA = {
+        name: "Nastya"
+    }
+
+    if (objA?.name) {
+        console.log(objA?.name.value);
+    }
+    else {
+        console.log('none');
+    }
+
