@@ -1,4 +1,5 @@
 import throttle from 'lodash.throttle';
+console.log('This is the third task.');
 
 const feedbackForm = document.querySelector('.feedback-form');
 const FORM_INFO = "feedback-form-state";
@@ -21,15 +22,20 @@ function onFeedbackFormSubmit(event) {
     formData = {};
 }
 
-function populateData() {
+function populateEmail() {
     const savedData = JSON.parse(localStorage.getItem(FORM_INFO));
 
     if (savedData?.email) {
         feedbackForm.email.value = savedData.email;
     }
+}
+function populateMessage() {
+    const savedData = JSON.parse(localStorage.getItem(FORM_INFO));
+
     if (savedData?.message) {
         feedbackForm.message.value = savedData.message;
     }
 }
 
-populateData();
+populateEmail();
+populateMessage();

@@ -27,14 +27,3 @@ import throttle from 'lodash.throttle';
         }
     });
 
-    const objA = {
-        name: "Nastya"
-    }
-
-    if (objA?.name) {
-        console.log(objA?.name.value);
-    }
-    else {
-        console.log('none');
-    }
-
